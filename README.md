@@ -76,35 +76,29 @@ docker compose -f docker-compose.yml up -d
 http://localhost:8000
 
 
-5. 管理者アカウントの作成
-  * 入力を求められるのでメッセージ従い入力
+5. マイグレートして、スーパーユーザーを作成する
 ```
-docker compose -f docker-compose.yml exec app ./manage.py createsuperuser
+./.migration.sh
 ```
+
+
 * ブラウザで確認
 http://localhost:8000/admin
 
 
 6. 一旦Dockerをリセットする
 ```
-docker compose down -v
-
-docker rm $(docker ps -a -q)
-
-docker rmi $(docker images -q)
-
-docker system prune
-
+./.docker_clear.sh
 ```
 
 
 7. Dockerを起動
 ```
-docker compose up -d --build
+docker compose -f docker-compose.yml up -d --build
 ```
 
 
-8. Django_App内でDjangoアプリを開発して行く
+8. app_dir内でDjangoアプリを開発して行く
 
 # 本番環境設定
 9. docker-compose.prod.ymlの編集

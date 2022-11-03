@@ -17,7 +17,7 @@ services:
     # DBのボリュームを指定
     # ローカルの/data/dbをコンテナの/var/lib/mysqlにマウントする
     volumes:
-      - db_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     # コンテナ内の環境変数を.envを使って設定
     env_file:
       - .env
@@ -79,5 +79,5 @@ services:
       - ./phpmyadmin/sessions:/sessions
 
 volumes:
-  db_data:
+  mysql_data:
   static:

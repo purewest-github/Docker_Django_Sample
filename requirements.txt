@@ -1,3 +1,6 @@
-Django<4.0
-mysqlclient
-gunicorn
+asgiref==3.5.2
+Django==3.2.16
+gunicorn==20.1.0
+mysqlclient==2.1.1
+pytz==2022.6
+sqlparse==0.4.3
